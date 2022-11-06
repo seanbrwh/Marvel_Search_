@@ -13,6 +13,7 @@ we can then present this to the user.
 ## Character name Search
 
 ————————————————————————————
+
 Returns a specific character with associated properties
 
 //-->Search term Thor
@@ -49,6 +50,7 @@ Spider-Ham (Larval Earth)
 ## Comic Title search
 
 ————————————————————————————
+
 Returns issues in the series
 
 //-->Search term Agents of Atlas
@@ -62,6 +64,7 @@ Returns issues in the series
 ## Comic title starts with search
 
 ————————————————————————————
+
 Return issues that start with search
 
 //-->Search term Age
