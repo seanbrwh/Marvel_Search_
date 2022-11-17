@@ -1,6 +1,6 @@
 package Comic;
 
-public class Thumbnail {
+public class Image {
     private String path;
     private String extension;
 
