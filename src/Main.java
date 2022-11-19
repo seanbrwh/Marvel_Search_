@@ -53,8 +53,7 @@ public class Main {
             System.out.println("Please make a choice.");
 
             int searchChoice = 0;
-            if (userInput.hasNextInt())
-                searchChoice = userInput.nextInt();
+            if (userInput.hasNextInt()) searchChoice = userInput.nextInt();
 
 
             searchChoice:
@@ -70,17 +69,16 @@ public class Main {
                     System.out.println("Please make a choice.");
 
                     int characterSearchParameter = 0;
-                    if (userInput.hasNextInt())
-                        characterSearchParameter = userInput.nextInt();
+                    if (userInput.hasNextInt()) characterSearchParameter = userInput.nextInt();
 
 
                     switch (characterSearchParameter) {
                         case 1:
                             System.out.println("Enter a name");
                             String name = "";
-                            if (userInput.hasNext())
-                                name = userInput.next();
-                            else break searchChoice;
+
+                            name = userInput.next();
+
                             String nameSearch = new BuildURI().build("characters", "name", name.replace(" ", "%20"));
                             HttpResponse<Supplier<Character>> nameSearchResults = Request.getCharacter(nameSearch);
                             nameSearchResults.body().get().getData().getResults().forEach(result -> {
@@ -91,9 +89,9 @@ public class Main {
                         case 2:
                             System.out.println("Please enter a 1-5 characters");
                             String nameStartsWith;
-                            if(userInput.hasNext())
-                                nameStartsWith = userInput.next();
-                            else break searchChoice;
+
+                            nameStartsWith = userInput.next();
+
                             String nameStartsWithSearch = new BuildURI().build("characters", "nameStartsWith", nameStartsWith.replace(" ", "%20"));
                             HttpResponse<Supplier<Character>> nameStartsWithSearchResult = Request.getCharacter(nameStartsWithSearch);
                             nameStartsWithSearchResult.body().get().getData().getResults().forEach(result -> System.out.println(result.getName()));
@@ -117,12 +115,13 @@ public class Main {
                     switch (comicParamChoice) {
                         case 1:
                             System.out.println("Please enter marvel comic book title");
-                            String title = "";
-                            if(userInput.hasNext())
-                                title = userInput.next();
-                            else break searchChoice;
-                            title = title.replace(" ", "%20");
-                            String titleSearch = new BuildURI().build("comics", "title", title);
+                            String comicTitle = "";
+                            userInput.nextLine();
+                            comicTitle = userInput.nextLine();
+                            comicTitle = comicTitle.replace(" ", "%20");
+                            System.out.println(comicTitle);
+                            String titleSearch = new BuildURI().build("comics", "title", comicTitle);
+                            System.out.println(titleSearch);
                             HttpResponse<Supplier<Comic>> comicTitleResult = Request.getComic(titleSearch);
 
                             comicTitleResult.body().get().getData().getResults().forEach(result -> System.out.println(result.getTitle()));
@@ -130,9 +129,7 @@ public class Main {
                         case 2:
                             System.out.println("Please enter a starts with for a title i.e (Age)");
                             String titleStartsWith = "";
-                            if(userInput.hasNext())
-                                titleStartsWith = userInput.next();
-                            else break searchChoice;
+                            titleStartsWith = userInput.next();
                             titleStartsWith = titleStartsWith.replace(" ", "%20");
                             String comicTitleStartsWithSearch = new BuildURI().build("comics", "titleStartsWith", titleStartsWith);
                             HttpResponse<Supplier<Comic>> comicTitleStartsWithSearchResult = Request.getComic(comicTitleStartsWithSearch);
