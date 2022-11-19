@@ -16,7 +16,7 @@ public class JsonBodyHandler<T> implements HttpResponse.BodyHandler<Supplier<T>>
 
     @Override
     public HttpResponse.BodySubscriber<Supplier<T>> apply(HttpResponse.ResponseInfo responseInfo) {
-        return null;
+        return asJson(this.targetClass);
     }
 
     public static <W> HttpResponse.BodySubscriber<Supplier<W>> asJson(Class<W> targetType) {

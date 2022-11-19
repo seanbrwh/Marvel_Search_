@@ -2,7 +2,7 @@ package Comic;
 
 public class Comic {
     private Integer code;
-    private String Status;
+    private String status;
     private String copyright;
     private String attributionText;
     private String attributionHTML;
@@ -14,7 +14,7 @@ public class Comic {
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public String getCopyright() {
